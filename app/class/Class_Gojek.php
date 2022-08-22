@@ -5,12 +5,12 @@ class Class_Gojek{
     function register($no = ''){
         $biodata = Class_Fakename::random();
         $nama = "Iqbal Bayu";
-        $email = $biodata['email_u'].'@'.$biodata['email_d'];
+        $email = str_replace(" ", "", $nama) . mt_rand(100, 999);
 
         $data = array(
             'url' => 'https://api.gojekapi.com/v5/customers',
             'method' => 'POST',
-            'body' => '{"email":"'.$email.'","name":"'.$nama.'","phone":"'.$no.'","signed_up_country":"ID"}',
+            'body' => '{"email":"'.$email.'@gmail.com","name":"'.$nama.'","phone":"'.$no.'","signed_up_country":"ID"}',
             'header' => array(
                 'X-AppId:  com.go-jek.ios',
                 'X-PhoneModel:  Apple, iPhone X',
